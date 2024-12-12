@@ -14,7 +14,7 @@ const Contact = () => {
   return (
     <section id="contact">
       <div className="contact container">
-        <form action="https://formspree.io/f/xbljqagb" method="POST">
+        <form action="https://formspree.io/f/mbljewbe" method="POST">
           <div className="form">
             <div className="form-txt">
               <h4>INFORMATION</h4>

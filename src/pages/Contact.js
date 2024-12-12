@@ -1,15 +1,11 @@
 import "styles/contact.css";
 import { BasketContext } from "context/BasketContext";
-import { useContext, useRef } from "react";
+import { useContext } from "react";
 
 const Contact = () => {
   const {
-    basketIsOpen,
-    setBasketIsOpen,
-    basketItems,
-    basketTotal: _basketTotal,
+    basketItems
   } = useContext(BasketContext);
-  const container = useRef();
 
   return (
     <section id="contact">

@@ -7,7 +7,8 @@ import useMakeRequest from "hooks/useMakeRequest";
 import { useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import styles from "styles/Detail.module.scss";
-import { CARDS } from "data/cards.js";
+import {Carousel} from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const Detail = () => {
   const { slug } = useParams();
@@ -65,14 +66,21 @@ const Detail = () => {
         <div className={styles.content}>
           <div className={styles.top}>
             <div className={styles.img}>
-              <img
-                src={
-                  result.data.img3 === ""
-                    ? "//s3-us-west-2.amazonaws.com/s.cdpn.io/4273/florence.jpg"
-                    : process.env.PUBLIC_URL + "/" + result.data.img3
-                }
-                alt=""
-              />
+            <Carousel>
+              {/* <Carousel.Item> */}
+              {/* <CImage> */}
+              <div>
+                <img src={process.env.PUBLIC_URL + "/" + result.data.img3} alt="" />
+              </div>
+              <div>
+                <img src={process.env.PUBLIC_URL + "/" + result.data.img2} alt="" />
+              </div>
+              <div>
+                <img src={process.env.PUBLIC_URL + "/" + result.data.img1} alt="" />
+              </div>
+                {/* </CImage> */}
+                {/* </Carousel.Item> */}
+            </Carousel>
             </div>
             <div className={styles.info}>
               <div className={styles.title}>
@@ -101,7 +109,7 @@ const Detail = () => {
               )}
               <div className={styles.price}>
                 <p>
-                  {result.data.price.toFixed(2)} <small>TRY</small>
+                  {result.data.price.toFixed(2)}
                 </p>
               </div>
               <div className={styles.addToBasketAndQuantity}>
@@ -110,11 +118,11 @@ const Detail = () => {
                 </div>
                 <AddToBasketBtn data={result.data} />
               </div>
+              <div className={styles.bottom}>
+                <Title txt="Description" size={20} transform="capitalize" />
+                <p className={styles.desc}>{result.data.description}</p>
+              </div>
             </div>
-          </div>
-          <div className={styles.bottom}>
-            <Title txt="Description" size={20} transform="capitalize" />
-            <p className={styles.desc}>{result.data.description}</p>
           </div>
         </div>
       )}

@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 
 const Category = () => {
   const { slug } = useParams();
-  const result = useMakeRequest(`https://fakestoreapi.com/category/${slug}`);
+  const result = useMakeRequest(`https://category/${slug}`);
 
   if (!result.data) {
     return (

@@ -13,9 +13,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 const Detail = () => {
   const { slug } = useParams();
   let id = slug.split("-");
-  // id = id[id.length - 1];
-  // const result = CARDS[id];
-  const result = useMakeRequest(`https://fakestoreapi.com/products/${id}`);
+  const result = useMakeRequest(`https://products/${id}`);
   console.log(result);
   const { basketItems } = useContext(BasketContext);
 
@@ -65,10 +63,7 @@ const Detail = () => {
       ) : (
         <div className={styles.content}>
           <div className={styles.top}>
-            <div className={styles.img}>
-            <Carousel>
-              {/* <Carousel.Item> */}
-              {/* <CImage> */}
+            <Carousel dynamicHeight="false" infiniteLoop="true" autoPlay="true" minHeight='20%'>
               <div>
                 <img src={process.env.PUBLIC_URL + "/" + result.data.img3} alt="" />
               </div>
@@ -78,10 +73,7 @@ const Detail = () => {
               <div>
                 <img src={process.env.PUBLIC_URL + "/" + result.data.img1} alt="" />
               </div>
-                {/* </CImage> */}
-                {/* </Carousel.Item> */}
             </Carousel>
-            </div>
             <div className={styles.info}>
               <div className={styles.title}>
                 <Title
@@ -99,7 +91,7 @@ const Detail = () => {
                 </Link>
               </div>
               {result.data.rating ? (
-                <div className={styles.rating}>
+                <div className={styles.addToBasketAndQuantity}>
                   <div className={styles.stars}>
                     {setStars(result.data.rating.rate)}
                   </div>
@@ -112,12 +104,12 @@ const Detail = () => {
                   {result.data.price.toFixed(2)}
                 </p>
               </div>
-              <div className={styles.addToBasketAndQuantity}>
                 <div className={styles.quantityBox}>
                   <Quantity data={getItemFromBasket(result.data)} />
                 </div>
-                <AddToBasketBtn data={result.data} />
-              </div>
+                <div className={styles.addToBasketAndQuantity}>
+                  <AddToBasketBtn data={result.data} />
+                </div>
               <div className={styles.bottom}>
                 <Title txt="Description" size={20} transform="capitalize" />
                 <p className={styles.desc}>{result.data.description}</p>

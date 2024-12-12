@@ -8,7 +8,7 @@ import { BasketContext } from "context/BasketContext";
 import { useContext } from "react";
 
 const Header = () => {
-  const result = useMakeRequest("https://fakestoreapi.com/products/categories");
+  const result = useMakeRequest("https://products/categories");
   const { basketItems, setBasketIsOpen } = useContext(BasketContext);
 
   return (

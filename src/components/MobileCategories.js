@@ -3,7 +3,7 @@ import CategoryItem from "components/CategoryItem";
 import useMakeRequest from "hooks/useMakeRequest";
 
 const MobileCategories = ({ setNavIsOpen }) => {
-  const result = useMakeRequest("https://fakestoreapi.com/categories");
+  const result = useMakeRequest("https://categories");
 
   return (
     <div className={styles.mobileCategories}>

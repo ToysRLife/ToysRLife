@@ -37,18 +37,6 @@ const Home = () => {
     return (
       <section className={styles.home}>
         <div className={styles.container}>
-          <div className={styles.row}>
-            {result.data && (
-              <div className={styles.title}>
-                <Title
-                  txt="All Products"
-                  color="#171717"
-                  size={22}
-                  transform="uppercase"
-                />
-              </div>
-            )}
-          </div>
           <div className={`${styles.row} card-wrapper`}>
             {result.data ? (
               result.data.map((product, key) => (

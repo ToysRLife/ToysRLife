@@ -7,6 +7,7 @@ import Home from "pages/Home";
 import Detail from "pages/Detail";
 import Category from "pages/Category";
 import Contact from "pages/Contact";
+import Badge from "pages/Badge";
 
 // COMPONENTS
 import Header from "components/Header";
@@ -39,6 +40,9 @@ const App = () => {
           <Header />
           <main className={styles.main}>
             <Switch>
+              <Route path="/ToysRLife/badge/:slug">
+                <Badge />
+              </Route>
               <Route path="/ToysRLife/product/:slug">
                 <Detail />
               </Route>

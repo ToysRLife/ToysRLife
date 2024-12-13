@@ -34,6 +34,15 @@ const useMakeRequest = (endpoint) => {
           const filtered = CARDS.filter((item) => item.category === category);
           json = filtered;
           console.log("category done");
+        } else if (endpoint.includes("badge")) {
+          console.log("badge");
+          const params = endpoint.split("/");
+          console.log(params);
+          const badge = params[params.length - 1];
+          console.log(badge);
+          const filtered = CARDS.filter((item) => item.badge === badge);
+          json = filtered;
+          console.log("badge done");
         } else {
           console.log("else");
           const args = endpoint.split("/");

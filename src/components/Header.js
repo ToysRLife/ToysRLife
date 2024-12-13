@@ -22,6 +22,19 @@ const Header = () => {
         <nav className={styles.nav}>
           <ul>
             <li>
+            <Link to={`/ToysRLife/badge/Trending`} className={styles.a}>
+            <img alt="Trending" src="https://icons.iconarchive.com/icons/fa-team/fontawesome/128/FontAwesome-Arrow-Trend-Up-icon.png" width="50" height="50" />
+            </Link>
+            </li>
+            <li>
+            <Link to={`/ToysRLife/badge/Hot`} className={styles.a}>
+            <img alt="Hot" src="https://icons.iconarchive.com/icons/google/noto-emoji-travel-places/128/42697-fire-icon.png" width="50" height="50" />
+            </Link>
+            </li>
+            <li>
+            <Link to={`/ToysRLife/contact`} className={styles.a}>Contact Us</Link>
+            </li>
+            <li>
               <Link
                 to="/ToysRLife/"
                 onClick={(e) => e.preventDefault()}

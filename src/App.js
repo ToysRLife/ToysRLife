@@ -1,5 +1,5 @@
 import styles from "styles/App.module.scss";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import clsx from "clsx";
 
 // PAGES
@@ -39,9 +39,6 @@ const App = () => {
           <Header />
           <main className={styles.main}>
             <Switch>
-              <Route path="/ToysRLife" exact>
-                <Home />
-              </Route>
               <Route path="/ToysRLife/product/:slug">
                 <Detail />
               </Route>
@@ -50,6 +47,9 @@ const App = () => {
               </Route>
               <Route path="/ToysRLife/contact/">
                 <Contact />
+              </Route>
+              <Route path="/ToysRLife" exact>
+                <Home />
               </Route>
             </Switch>
           </main>

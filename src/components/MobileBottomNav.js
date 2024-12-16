@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import MobileBasket from "components/MobileBasket";
 import { BasketContext } from "context/BasketContext";
 import clsx from "clsx";
+import { Link } from "react-router-dom";
 
 const MobileBottomNav = () => {
   const [currentComponent, setCurrentComponent] = useState("");
@@ -33,13 +34,11 @@ const MobileBottomNav = () => {
       <div className={styles.navContainer}>
         <button
           className={styles.navItem}
-          onClick={() => {
-            setCurrentComponent("");
-            setNavIsOpen(false);
-          }}
-        >
+        >     
+          <Link to="/ToysRLife/">
           <GetIcon icon="BsHouseFill" size={20} />
-        </button>
+          </Link>  
+        </button>        
         <button
           className={styles.navItem}
           onClick={() => {

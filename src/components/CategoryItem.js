@@ -10,7 +10,7 @@ const CategoryItem = ({ data, setNavIsOpen }) => {
         className={styles.sub_a}
         onClick={() => setNavIsOpen && setNavIsOpen(false)}
       >
-        <img src={linkBG} alt="" />
+        {/* <img src={linkBG} alt="" /> */}
         <h3>{data}</h3>
       </Link>
     </li>

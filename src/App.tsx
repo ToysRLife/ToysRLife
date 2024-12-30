@@ -7,6 +7,7 @@ import { Cart } from './components/Cart';
 import { ProductDetails } from './components/ProductDetails';
 import { Checkout } from './components/Checkout';
 import { useCart } from './hooks/useCart';
+import { useSearch } from './hooks/useSearch';
 import { Product } from './types';
 import { CheckoutFormData } from './components/Checkout';
 
@@ -17,13 +18,8 @@ function App() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const { cartItems, addToCart, removeFromCart, updateQuantity, getTotal } = useCart();
-
-  const filteredProducts = productsData.products.filter(product => {
-    const matchesCategory = !selectedCategory || product.categories.includes(selectedCategory);
-    const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                         product.description.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
+  
+  const filteredProducts = useSearch(productsData.products, searchQuery, selectedCategory);
 
   const handleProductClick = (product: Product) => {
     setSelectedProduct(product);
@@ -57,7 +53,6 @@ function App() {
         onCartClick={() => setIsCartOpen(true)}
       />
 
-      {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 pt-24">
         <CategoryFilter
           categories={productsData.categories}
@@ -65,20 +60,27 @@ function App() {
           onSelectCategory={setSelectedCategory}
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              {...product}
-              categoryData={productsData.categories}
-              onAddToCart={() => handleAddToCart(product)}
-              onClick={() => handleProductClick(product)}
-            />
-          ))}
-        </div>
+        {filteredProducts.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-gray-500 dark:text-gray-400">
+              No products found matching your search criteria.
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredProducts.map((product) => (
+              <ProductCard
+                key={product.id}
+                {...product}
+                categoryData={productsData.categories}
+                onAddToCart={() => handleAddToCart(product)}
+                onClick={() => handleProductClick(product)}
+              />
+            ))}
+          </div>
+        )}
       </main>
 
-      {/* Modals */}
       {selectedProduct && (
         <ProductDetails
           product={selectedProduct}

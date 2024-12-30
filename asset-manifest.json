@@ -1,11 +1,11 @@
 {
   "files": {
-    "main.css": "/ToysRLife/static/css/main.66572e0f.css",
-    "main.js": "/ToysRLife/static/js/main.1e2b4167.js",
+    "main.css": "/ToysRLife/static/css/main.363d142a.css",
+    "main.js": "/ToysRLife/static/js/main.dff45ba8.js",
     "index.html": "/ToysRLife/index.html"
   },
   "entrypoints": [
-    "static/css/main.66572e0f.css",
-    "static/js/main.1e2b4167.js"
+    "static/css/main.363d142a.css",
+    "static/js/main.dff45ba8.js"
   ]
 }

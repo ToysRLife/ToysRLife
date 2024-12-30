@@ -1,5 +1,5 @@
 
-import { Search, ShoppingCart } from 'lucide-react';
+import { Search, ShoppingBag, ShoppingCart } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 // HOOKS
 import useMobileDetect from "../hooks/useMobileDetect.js";
@@ -19,10 +19,7 @@ export function Header({ searchQuery, onSearchChange, cartItemsCount, onCartClic
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              {/* <ShoppingBag className="h-8 w-8 text-blue-500" /> */}
-              {device.type === "desktop" &&
-                  <img alt="Toys R Life" src={process.env.PUBLIC_URL + "/" + "logo192.png"} margin="1rem" width="40" height="40" />
-                }
+              <ShoppingBag className="h-8 w-8 text-blue-500" />
               {device.type === "desktop" &&
                   <h1 className="ml-2 text-2xl font-bold text-gray-900 dark:text-white">Toys R Life</h1>
               }

@@ -18,9 +18,11 @@ export function Header({ searchQuery, onSearchChange, cartItemsCount, onCartClic
       <div className="backdrop-blur-md bg-white/70 dark:bg-gray-800/70 shadow-sm transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <ShoppingBag className="h-8 w-8 text-blue-500" />
-              {device.type === "desktop" &&
+            <div className="flex items-center">  
+              {device.type === "desktop" && 
+                    <ShoppingBag className="h-8 w-8 text-blue-500" />
+              }        
+              {device.type === "desktop" && 
                   <h1 className="ml-2 text-2xl font-bold text-gray-900 dark:text-white">Toys R Life</h1>
               }
             </div>
